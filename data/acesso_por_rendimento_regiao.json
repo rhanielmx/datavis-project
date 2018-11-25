@@ -1,0 +1,63 @@
+{
+	"total":{
+		"sem_rendimento":29.4,
+		"ate_meio":7,
+		"mais_meio_a_um": 5.2,
+		"mais_um_a_dois": 32.2,
+		"mais_dois_a_tres": 12.1,
+		"mais_tres_a_cinco":7,
+		"mais_cinco_a_dez":4.1,
+		"mais_dez":1.9
+	},
+	"norte":{
+		"sem_rendimento":34.7,
+		"ate_meio":9.8,
+		"mais_meio_a_um": 8.3,
+		"mais_um_a_dois": 30.4,
+		"mais_dois_a_tres": 8.2,
+		"mais_tres_a_cinco": 4.5,
+		"mais_cinco_a_dez": 2.6,
+		"mais_dez": 0.9
+	},
+	"nordeste":{
+		"sem_rendimento": 31.4,
+		"ate_meio": 14.1,
+		"mais_meio_a_um": 8.1,
+		"mais_um_a_dois": 32.9,
+		"mais_dois_a_tres": 6.8,
+		"mais_tres_a_cinco":3.4,
+		"mais_cinco_a_dez":2,
+		"mais_dez": 0.8
+	},
+	"sul":{
+		"sem_rendimento": 24.9,
+		"ate_meio": 3.3,
+		"mais_meio_a_um": 3.8,
+		"mais_um_a_dois": 32.3,
+		"mais_dois_a_tres": 16.8,
+		"mais_tres_a_cinco":10,
+		"mais_cinco_a_dez":5.7,
+		"mais_dez": 2.2
+	},
+	"sudeste":{
+		"sem_rendimento": 28.9,
+		"ate_meio": 3.6,
+		"mais_meio_a_um": 3.5,
+		"mais_um_a_dois": 32,
+		"mais_dois_a_tres": 14.3,
+		"mais_tres_a_cinco":8.7,
+		"mais_cinco_a_dez":5,
+		"mais_dez":2.5
+	},
+	"centro_oeste":{
+		"sem_rendimento": 28.2,
+		"ate_meio": 4.3,
+		"mais_meio_a_um": 3.9,
+		"mais_um_a_dois": 32,
+		"mais_dois_a_tres": 14,
+		"mais_tres_a_cinco":8.3,
+		"mais_cinco_a_dez":5.7,
+		"mais_dez":3.1
+	},
+
+}

@@ -1,0 +1,59 @@
+{
+	"total":{
+		"Brasil":  177 657,
+		"Norte":  14 537,
+		"Nordeste":  48 410,
+		"Sudeste":  75 599,
+		"Sul":  25 772,
+		"Centro_oeste":  13 340,
+		"0_20":{
+			"Brasil": 33343,
+			"Norte":3425,
+			"Nordeste":10333,
+			"Sudeste":12810,
+			"Sul":4278,
+			"Centro_oeste":2497,
+		},
+		"20_40":{
+			"Brasil": 62906,
+			"Norte":5626,
+			"Nordeste":17448,
+			"Sudeste":26173,
+			"Sul":8650,
+			"Centro_oeste":5008,
+		},
+		"40_60":{
+			"Brasil": 52033,
+			"Norte":3716,
+			"Nordeste":13047,
+			"Sudeste":23153,
+			"Sul":8169,
+			"Centro_oeste":3950,
+		},
+		"60_":{
+			"Brasil": 29374,
+			"Norte":1769,
+			"Nordeste":7582,
+			"Sudeste":13462,
+			"Sul":4675,
+			"Centro_oeste":1885,
+		}
+	},
+	"Homens":{
+		"Brasil": 85489,
+		"Norte": 7281,
+		"Nordeste": 23182,
+		"Sudeste": 36038,
+		"Sul": 12502,
+		"Centro_oeste": 6487,
+	},
+	"Mulheres":{
+		"Brasil": 92167,
+		"Norte": 7256,
+		"Nordeste": 25228,
+		"Sudeste": 39561,
+		"Sul": 13270,
+		"Centro_oeste": 6852,
+	},
+	"Fonte": "IBGE, Diretoria de Pesquisas, Coordenação de Trabalho e Rendimento, Pesquisa Nacional por Amostra de Domicílios 2015"
+}
