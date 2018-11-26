@@ -3,55 +3,29 @@
 <head>
   <meta charset="utf-8"/>
   <title></title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/vega.css" rel="stylesheet" id="bootstrap-css">
+  
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script> 
   <script src="https://vega.github.io/vega/vega-core.min.js"></script>
-  <!-- <script type="text/javascript" src="data/acesso_por_regiao_sexo_idade.json"></script> -->
+  <script type="text/javascript" src="js/por_sexo_e_regiao.js"></script>
 
 </head>
 <body>
   <script type="text/javascript">
-    var view;
-    $.getJSON('data/acesso_por_regiao_sexo_idade.json', function(res)  {
-       console.log(res)
-       vega.loader()
-        .load('json/bar.json')
-        .then(function(data) { 
-          var data = JSON.parse(data)
-          var values = [
-            {category: "Brasil", position:0, value: (res.mulheres.brasil / res.total.brasil * 100).toFixed(2)},
-            {category: "Brasil", position:1, value: (res.homens.brasil / res.total.brasil * 100).toFixed(2)},
-            {category: "Norte", position:0, value: (res.mulheres.norte / res.total.norte * 100).toFixed(2)},
-            {category: "Norte", position:1, value: (res.homens.norte / res.total.norte * 100).toFixed(2)},
-            {category: "Nordeste", position:0, value: (res.mulheres.nordeste / res.total.nordeste * 100).toFixed(2)},
-            {category: "Nordeste", position:1, value: (res.homens.nordeste / res.total.nordeste * 100).toFixed(2)},
-            {category: "Sul", position:0, value: (res.mulheres.sul / res.total.sul * 100).toFixed(2)},
-            {category: "Sul", position:1, value: (res.homens.sul / res.total.sul * 100).toFixed(2)},
-            {category: "Sudeste", position:0, value: (res.mulheres.sudeste / res.total.sudeste * 100).toFixed(2)},
-            {category: "Sudeste", position:1, value: (res.homens.sudeste / res.total.sudeste * 100).toFixed(2)},
-            {category: "Centro-Oeste", position:0, value: (res.mulheres.centro_oeste / res.total.centro_oeste * 100).toFixed(2)},
-            {category: "Centro-Oeste", position:1, value: (res.homens.centro_oeste / res.total.centro_oeste * 100).toFixed(2)}
-          ]
-          data.data.push({
-            "name":"por_sexo",
-            values
-          })
-          render(data);
-        })
-        .catch(e => console.log(e))
-     })
-      
-
-    function render(spec) {
-      view = new vega.View(vega.parse(spec))
-        .renderer('canvas')  // set renderer (canvas or svg)
-        .initialize('#view') // initialize view within parent DOM container
-        // .hover()             // enable hover encode set processing
-        .run();
-    }
   </script>
-    <h3>Acesso por Sexo e Região (%)</h3>
-    <div id="view"></div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <div id="sexo-regiao-container">
+      <div class="row">
+        <div class="col">
+          <div id="sexo_regiao"></div>
+        </div>
+        <div class="col">
+          <div id="rendimento_regiao"></div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

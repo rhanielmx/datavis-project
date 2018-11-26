@@ -1,5 +1,45 @@
 {
 	"total":{
+		"brasil": 177657,
+		"norte": 14537,
+		"nordeste": 48410,
+		"sudeste": 75599,
+		"sul": 25772,
+		"centro_oeste": 13340,
+		"0_20": {
+			"brasil": 33343,
+			"norte": 3425,
+			"nordeste": 10333,
+			"sudeste": 12810,
+			"sul": 4278,
+			"centro_oeste": 2497
+		},
+		"20_40": {
+			"brasil": 62906,
+			"norte": 5626,
+			"nordeste": 17448,
+			"sudeste": 26173,
+			"sul": 8650,
+			"centro_oeste": 5008
+		},
+		"40_60": {
+			"brasil": 52033,
+			"norte": 3716,
+			"nordeste": 13047,
+			"sudeste": 23153,
+			"sul": 8169,
+			"centro_oeste": 3950
+		},
+		"60_": {
+			"brasil": 29374,
+			"norte": 1769,
+			"nordeste": 7582,
+			"sudeste": 13462,
+			"sul": 4675,
+			"centro_oeste": 1885
+		},
+		"homens": 85489,
+		"mulheres": 92167,
 		"sem_rendimento":29.4,
 		"ate_meio":7,
 		"mais_meio_a_um": 5.2,
@@ -10,6 +50,8 @@
 		"mais_dez":1.9
 	},
 	"norte":{
+		"homens":7281,
+		"mulheres":7256,
 		"sem_rendimento":34.7,
 		"ate_meio":9.8,
 		"mais_meio_a_um": 8.3,
@@ -20,6 +62,8 @@
 		"mais_dez": 0.9
 	},
 	"nordeste":{
+		"homens":23182,
+		"mulheres":25228,
 		"sem_rendimento": 31.4,
 		"ate_meio": 14.1,
 		"mais_meio_a_um": 8.1,
@@ -30,6 +74,8 @@
 		"mais_dez": 0.8
 	},
 	"sul":{
+		"homens": 12502,
+		"mulheres": 13270,
 		"sem_rendimento": 24.9,
 		"ate_meio": 3.3,
 		"mais_meio_a_um": 3.8,
@@ -40,6 +86,8 @@
 		"mais_dez": 2.2
 	},
 	"sudeste":{
+		"homens": 36038,
+		"mulheres": 39561,
 		"sem_rendimento": 28.9,
 		"ate_meio": 3.6,
 		"mais_meio_a_um": 3.5,
@@ -50,6 +98,8 @@
 		"mais_dez":2.5
 	},
 	"centro_oeste":{
+		"homens": 6487,
+		"mulheres": 6852,
 		"sem_rendimento": 28.2,
 		"ate_meio": 4.3,
 		"mais_meio_a_um": 3.9,
@@ -58,6 +108,6 @@
 		"mais_tres_a_cinco":8.3,
 		"mais_cinco_a_dez":5.7,
 		"mais_dez":3.1
-	},
+	}
 
 }

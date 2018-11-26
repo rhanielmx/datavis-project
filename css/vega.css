@@ -1,0 +1,19 @@
+#sexo-regiao-container{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+#btn-por-renda{
+	height: 60px;
+	width: 100px;
+}
+
+.btn-selected{
+	background-color: #000
+}
+
+#btn-por-sexo{
+	margin-bottom: 50px;
+	height: 60px;
+	width: 100px;
+}

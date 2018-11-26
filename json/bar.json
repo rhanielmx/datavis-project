@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 300,
-  "height": 240,
+  "width": 500,
+  "height": 340,
   "padding": 5,
 
   "data": [
@@ -88,7 +88,7 @@
             "enter": {
               "x": {"field": "x2", "offset": -5},
               "y": {"field": "y", "offset": {"field": "height", "mult": 0.5}},
-              "fill": {"value": "white"},
+              "fill": {"value": "black"},
               "align": {"value": "right"},
               "baseline": {"value": "middle"},
               "text": {"field": "datum.value"}
