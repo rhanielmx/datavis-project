@@ -1,4 +1,4 @@
-let blues = d3.schemeGreens[8];
+  let blues = d3.schemeBlues[9].slice(1,);
   
   let map = L.map('map').setView([-15.79621085,-47.88285245], 4);
   L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
@@ -32,15 +32,16 @@ let blues = d3.schemeGreens[8];
      return {
           weight: 1,
           opacity: 1,
-          color: 'white',
+          color: 'lightgray',
           dashArray: '3',
           fillOpacity: 0.7,
           fillColor: quantize(homicidiosByName.get(feature.properties.name))
         };
   }
+
   function highlightFeature(e) {
     let layer = e.target;
-        //console.log(e.target)
+    console.log(e.target)
 
     layer.setStyle({
           weight: 2,
@@ -73,22 +74,43 @@ let blues = d3.schemeGreens[8];
           click: zoomToFeature
         });
   }
-    let homicidiosByName = d3.map();
+  
+  let homicidiosByName = d3.map();
 
-  d3.csv("data/acessos_brasil.csv").then(function(data){
+  function setMapData(datafile){
+    d3.csv(datafile).then(function(data){
         //format data
         data.forEach(function(d) {
             homicidiosByName.set(d.Estado,+d.Acessos);
             console.log(d.Estado)
         });
     
-    //brasilData is defined in file brazil_geo.js       
+    //brasilData is defined in file br.js       
     geojson = L.geoJson(brasilData, {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(map);
     
-  });     
+    });
+  }
+  
+  setMapData("data/acessos_brasil.csv")
+
+  function updateMapData(datafile){
+    geojson.eachLayer(function(layer) {
+      map.removeLayer(layer)
+    });
+
+    setMapData(datafile)
+  }
+
+  $(document).ready(function() {
+    $('fieldset.checkbox input[type="radio"]').on('change', function() {
+        console.log('You selected: ' + $(this).val() );
+        // do something with the value here - e.g. 
+        updateMapData($(this).val())
+    });
+  });
   
   let legend = L.control({position: 'bottomright'});
 
@@ -96,12 +118,12 @@ let blues = d3.schemeGreens[8];
 
     let div = L.DomUtil.create('div', 'info legend'),
       labels = [],
-            n = blues.length,
+      n = blues.length,
       from, to;
 
     for (let i = 0; i < n; i++) {
       let c = blues[i];
-            let fromto = quantize.invertExtent(c);
+      let fromto = quantize.invertExtent(c);
       labels.push(
         '<i style="background:' + blues[i] + '"></i> ' +
         d3.format("d")(fromto[0]) + (d3.format("d")(fromto[1]) ? '&ndash;' + d3.format("d")(fromto[1]) : '+'));
