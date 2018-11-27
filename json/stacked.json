@@ -5,7 +5,12 @@
   "padding": 5,
 
   "data": [],
-
+  "encoding":{
+    "color": {
+      "field": "c", 
+      "type": "nominal"
+    }
+  },
   "scales": [
     {
       "name": "x",
@@ -17,6 +22,7 @@
       "name": "y",
       "type": "linear",
       "range": "height",
+      "labels": false,
       "nice": true, "zero": true,
       "domain": {"data": "rendimento", "field": "y1"}
     },
@@ -29,15 +35,34 @@
   ],
 
   "axes": [
-    {"orient": "bottom", "scale": "x", "zindex": 1},
-    {"orient": "left", "scale": "y", "zindex": 1}
+    {"orient": "bottom", "scale": "x", "zindex": 1}
   ],
-
+  "legends": [
+    {
+      "fill": "c",
+      "title": "Species",
+      "offset": 0,
+      "properties": {
+        "symbols": {
+          "fillOpacity": {"value": 0.5},
+          "stroke": {"value": "transparent"}
+        }
+      }
+    }
+  ],
   "marks": [
     {
       "type": "rect",
       "from": {"data": "rendimento"},
       "encode": {
+        "encoding": {
+        "color": {
+          "field": "color", 
+          "sort": false,
+          "type": "nominal",
+          "legend": { "title": "" }
+        } 
+      },
         "enter": {
           "x": {"scale": "x", "field": "x"},
           "width": {"scale": "x", "band": 1, "offset": -1},

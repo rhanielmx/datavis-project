@@ -62,43 +62,32 @@ async function load_por_rendimento(){
   console.log(res)
   vega.loader()
   .load('json/stacked.json')
-  .then(function(data) { 
+  .then(function(data) {
+    var values = []
     var data = JSON.parse(data)
-    var regioes = ['norte','nordeste','sul','sudeste','centro-oeste']
+    var regioes = ['norte','nordeste','sul','sudeste','centro_oeste']
     var x_axis = [
       {x:'1/2 SM', x_data: "ate_meio"},
-      {x:'1/2 a 1 SM', x_data: ""},
-      {x:'2 a 3 SM', x_data: ""},
-      {x:'3 a 5 SM', x_data: ""},
-      {x:"5 a 10 SM", x_data: ""},
-      {x:"> 10 SM", x_data: ""}
+      {x:'1/2 a 1 SM', x_data: "meio_a_um"},
+      {x:'1 a 2 SM', x_data: 'um_a_dois'},
+      {x:'2 a 3 SM', x_data: "dois_a_tres"},
+      {x:'3 a 5 SM', x_data: "tres_a_cinco"},
+      {x:"5 a 10 SM", x_data: "cinco_a_dez"},
+      {x:"> 10 SM", x_data: "mais_dez"}
     ]
 
     regioes.forEach(r => {
       x_axis.forEach(x => {
+        console.log(r, res)
         values.push(
-          {x, y:res[r].}
+          {x:x.x, y:res[r][x.x_data], c:r}
         )
       })
     })
-    var values = []
-
+    console.log(values)
     data.data.push({
       "name": "rendimento",
-      "values": [
-        {"x": "1/2 SM", "y": 28, "c":"Norte"},
-        {"x": "1/2 à 1 SM", "y": 43, "c":"Norte"},
-        {"x": "2 à 3 SM", "y": 81, "c":"Norte"},
-        {"x": "3 à 5 SM", "y": 19, "c":"Norte"},
-        {"x": "5 Á 10 SM", "y": 52, "c":"Norte"},
-        {"x": "> 10 SM", "y": 24, "c":"Norte"},
-        {"x": "1/2 SM", "y": 28, "c":1},
-        {"x": "1/2 à 1 SM", "y": 43, "c":1},
-        {"x": "2 à 3 SM", "y": 81, "c":1},
-        {"x": "3 à 5 SM", "y": 19, "c":1},
-        {"x": "5 Á 10 SM", "y": 52, "c":1},
-        {"x": "> 10 SM", "y": 24, "c":1},
-      ],
+      values,
     })
 
     data.data[0]['transform'] = [

@@ -31,8 +31,7 @@
   ],
 
   "axes": [
-    {"orient": "left", "scale": "yscale", "tickSize": 0, "labelPadding": 4, "zindex": 1},
-    {"orient": "bottom", "scale": "xscale"}
+    {"orient": "left", "scale": "yscale", "tickSize": 0, "labelPadding": 4, "zindex": 1}
   ],
 
   "marks": [
