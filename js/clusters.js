@@ -1,9 +1,9 @@
 var body = document.getElementsByTagName("body")[0]
-var width = body.clientWidth, height = 480;
+var width = 960, height = 520;
 
 var elementPosition = $('#svgdiv')
 
-$('#svgdiv').css('width','200').css('height','300');
+$('#svgdiv').css('width','960').css('height','440');
 
 var svg = d3.select("#svgdiv")
   .append("svg")
@@ -49,10 +49,10 @@ function updateForces(groupOption){
     forceY = d3.forceY((d) => groups[groupOption][d.group].y);
 
     force = d3.forceSimulation(data)
-              .velocityDecay(0.1)
+              .velocityDecay(0.04)
               .force('x', forceX)
               .force('y', forceY)
-              .force("collide", d3.forceCollide(6.5))
+              .force("collide", d3.forceCollide(5))
               .force("tick", ticked);
 }
 
@@ -65,7 +65,7 @@ function ticked(alpha){
 
 var xScale = d3.scaleLinear()
   .domain([0, 4])
-  .range([350, width-350]);
+  .range([150, width-150]);
 
 var qtdAcessos;
 
@@ -97,47 +97,47 @@ data = generateData(qtdNodes)
 groups = {
     "total":{
         "Todos":{
-          "x": xScale(2),
+          "x": width / 2,
           "y": height / 2
         }
     },
     "region":{
         "Norte" : {
-         "x" : xScale(1),
-         "y": height / 3
+         "x" : xScale(0.7),
+         "y": height / 3 - 20
         },
         "Nordeste": {
-             "x" : xScale(1.3),
-             "y": height / 1.5
+             "x" : xScale(1.2),
+             "y": height / 1.5 - 20
         },
         "Sudeste": {
              "x" : xScale(2),
-             "y": height / 2 - 150
+             "y": height / 2 - 130
         },
         "Sul": {
              "x" : xScale(2.8),
-             "y": height / 1.5
+             "y": height / 1.5 - 20
         },
         "Centro-Oeste": {
-             "x" : xScale(3),
-             "y": height / 3
+             "x" : xScale(3.3),
+             "y": height / 3 - 20
         }
     },
     "age":{
         "0-20":  {
-           "x" : xScale(1),
+           "x" : xScale(0.8),
            "y": height / 2 - 150
           },
         "20-40":  {
-           "x" : xScale(1),
+           "x" : xScale(0.8),
            "y": height / 2 + 50
           },
         "40-60":  {
-           "x" : xScale(3),
+           "x" : xScale(3.2),
            "y": height / 2 - 150
           },
         "60+":  {
-           "x" : xScale(3),
+           "x" : xScale(3.2),
            "y": height / 2 + 50
           }
     },  
@@ -241,9 +241,6 @@ function generateData(nodes){
   return dataset;
 }
 
-
-
-
 d3.select("#totalBtn").on("click", function(){
     svg.selectAll('text').remove();
 
@@ -272,7 +269,7 @@ d3.select("#totalBtn").on("click", function(){
 
     node.transition().duration(500).attr("fill", (d)=>'lightgray');
     force.nodes(data);
-    force.alpha(0.8).restart();
+    force.alpha(1).restart();
 })
 
 d3.select("#regionBtn").on("click", function(){
@@ -302,7 +299,7 @@ d3.select("#regionBtn").on("click", function(){
 
     node.transition().duration(500).attr("fill", (d)=>'lightgray');
     force.nodes(data);
-    force.alpha(0.8).restart();
+    force.alpha(1).restart();
 })
 
 d3.select("#ageBtn").on("click", function(){
@@ -321,7 +318,7 @@ d3.select("#ageBtn").on("click", function(){
     nodes.forEach(function(d){    
       svg.append("text")
           .attr("x", groups[option][d.group].x - 20)
-          .attr('y', groups[option][d.group].y - 50)
+          .attr('y', groups[option][d.group].y - 60)
           .style("font-family","Arial, Helvetica, sans-serif")
           .style("font-size","20px")
           .style('fill', 'lightgray')
@@ -332,7 +329,7 @@ d3.select("#ageBtn").on("click", function(){
 
     node.transition().duration(500).attr("fill", (d)=>'lightgray');
     force.nodes(data);
-    force.alpha(0.8).restart();
+    force.alpha(1).restart();
 })
 
 d3.select("#sexBtn").on("click", function(){
@@ -352,7 +349,7 @@ d3.select("#sexBtn").on("click", function(){
     nodes.forEach(function(d){    
       svg.append("text")
           .attr("x", groups[option][d.group].x - 35)
-          .attr('y', groups[option][d.group].y - 60)
+          .attr('y', groups[option][d.group].y - 75)
           .style("font-family","Arial, Helvetica, sans-serif")
           .style("font-size","20px")
           .style('fill', 'lightgray')
@@ -363,6 +360,6 @@ d3.select("#sexBtn").on("click", function(){
 
     node.transition().duration(500).attr("fill", (d)=>'lightgray');
     force.nodes(data);
-    force.alpha(0.8).restart();
+    force.alpha(1).restart();
 })
 
