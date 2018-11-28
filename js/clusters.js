@@ -89,9 +89,6 @@ setTimeout(function(){
 
 let group = 'total';
 
-acessScale = d3.scaleLinear()
-                .domain([0,qtdAcessos.total.Todos])
-                .range([0,100])
 
 qtdNodes = generateNodes(group);
 data = generateData(qtdNodes)
@@ -190,6 +187,10 @@ nodes.forEach(function(d){
 
 
 },2000);
+
+var acessScale = d3.scaleLinear()
+                .domain([0,qtdAcessos.total.Todos])
+                .range([0,100])
 
 function generateNodes(groupOption){
 
