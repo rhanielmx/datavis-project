@@ -18,14 +18,9 @@ function load_regiao(regiao){
     var values = []
     var regioes = ['norte','nordeste','sul','sudeste','centro_oeste']
       var x_axis = [
-        {x:'Sem Renda', x_data: 'sem_renda'},
-      {x:'1/2 SM', x_data: "ate_meio"},
-      {x:'1/2 a 1 SM', x_data: "meio_a_um"},
-      {x:'1 a 2 SM', x_data: 'um_a_dois'},
-      {x:'2 a 3 SM', x_data: "dois_a_tres"},
-      {x:'3 a 5 SM', x_data: "tres_a_cinco"},
-      {x:"5 a 10 SM", x_data: "cinco_a_dez"},
-      {x:"> 10 SM", x_data: "mais_dez"}
+        {x:'Sem Renda a 1 SM', x_data: 'a_um_SM'},
+        {x:'1 a 5 SM', x_data: 'um_a_cinco'},
+        {x:"mais 5 SM", x_data: "mais_cinco"}
       ]
       x_axis.forEach(x => {
         values.push(
@@ -94,14 +89,9 @@ async function load_por_sexo(){
       var values = []
       var regioes = ['norte','nordeste','sul','sudeste','centro_oeste']
       var x_axis = [
-        {x:'Sem Renda', x_data: 'sem_renda'},
-      {x:'1/2 SM', x_data: "ate_meio"},
-      {x:'1/2 a 1 SM', x_data: "meio_a_um"},
-      {x:'1 a 2 SM', x_data: 'um_a_dois'},
-      {x:'2 a 3 SM', x_data: "dois_a_tres"},
-      {x:'3 a 5 SM', x_data: "tres_a_cinco"},
-      {x:"5 a 10 SM", x_data: "cinco_a_dez"},
-      {x:"> 10 SM", x_data: "mais_dez"}
+       {x:'Sem Renda a 1 SM', x_data: 'a_um_SM'},
+        {x:'1 a 5 SM', x_data: 'um_a_cinco'},
+        {x:"mais 5 SM", x_data: "mais_cinco"}
       ]
       regioes.forEach(r => {
       x_axis.forEach(x => {
