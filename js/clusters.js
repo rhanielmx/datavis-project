@@ -3,7 +3,7 @@ var width = body.clientWidth, height = 480;
 
 var elementPosition = $('#svgdiv')
 
-$('#svgdiv').css('width','300').css('height','200');
+$('#svgdiv').css('width','200').css('height','300');
 
 var svg = d3.select("#svgdiv")
   .append("svg")
