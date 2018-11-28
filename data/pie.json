@@ -1,0 +1,32 @@
+{
+	"total":{
+		"a_um_SM": 41.6,
+		"um_a_cinco": 52.4,
+		"mais_cinco":6
+	},
+	"norte":{
+		"a_um_SM": 52.8,
+		"um_a_cinco": 43.7,
+		"mais_cinco":3.5
+	},
+	"nordeste":{
+		"a_um_SM": 53.6,
+		"um_a_cinco": 43.1,
+		"mais_cinco":2.8
+	},
+	"sul":{
+		"a_um_SM": 32,
+		"um_a_cinco": 59.1,
+		"mais_cinco":7.9
+	},
+	"sudeste":{
+		"a_um_SM": 36,
+		"um_a_cinco": 55,
+		"mais_cinco":7.5
+	},
+	"centro_oeste":{
+		"a_um_SM": 36.4,
+		"um_a_cinco": 54.3,
+		"mais_cinco":8.8
+	}
+}

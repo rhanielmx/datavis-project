@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 400,
+  "width": 350,
   "height": 340,
   "padding": 5,
 
@@ -13,7 +13,7 @@
       "type": "band",
       "domain": {"data": "por_sexo", "field": "category"},
       "range": "height",
-      "padding": 0.2
+      "padding": 0
     },
     {
       "name": "xscale",
@@ -26,7 +26,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "por_sexo", "field": "position"},
-      "range": {"scheme": "pastel1"}
+      "range": {"scheme": "category20"}
     }
   ],
 
