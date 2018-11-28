@@ -1,57 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <title></title>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
-  <script src="https://d3js.org/d3.v5.min.js"></script> 
-  <script src="https://vega.github.io/vega/vega-core.min.js"></script>
-  <!-- <script type="text/javascript" src="data/acesso_por_regiao_sexo_idade.json"></script> -->
-
+  <script src="http://trifacta.github.io/vega/lib/d3.v3.min.js"></script>
+  <script src="http://trifacta.github.io/vega/vega.js"></script>
 </head>
 <body>
-  <script type="text/javascript">
-    var view;
-    $.getJSON('data/acesso_por_regiao_sexo_idade.json', function(res)  {
-       console.log(res)
-       vega.loader()
-        .load('json/bar.json')
-        .then(function(data) { 
-          var data = JSON.parse(data)
-          var values = [
-            {category: "Brasil", position:0, value: (res.mulheres.brasil / res.total.brasil * 100).toFixed(2)},
-            {category: "Brasil", position:1, value: (res.homens.brasil / res.total.brasil * 100).toFixed(2)},
-            {category: "Norte", position:0, value: (res.mulheres.norte / res.total.norte * 100).toFixed(2)},
-            {category: "Norte", position:1, value: (res.homens.norte / res.total.norte * 100).toFixed(2)},
-            {category: "Nordeste", position:0, value: (res.mulheres.nordeste / res.total.nordeste * 100).toFixed(2)},
-            {category: "Nordeste", position:1, value: (res.homens.nordeste / res.total.nordeste * 100).toFixed(2)},
-            {category: "Sul", position:0, value: (res.mulheres.sul / res.total.sul * 100).toFixed(2)},
-            {category: "Sul", position:1, value: (res.homens.sul / res.total.sul * 100).toFixed(2)},
-            {category: "Sudeste", position:0, value: (res.mulheres.sudeste / res.total.sudeste * 100).toFixed(2)},
-            {category: "Sudeste", position:1, value: (res.homens.sudeste / res.total.sudeste * 100).toFixed(2)},
-            {category: "Centro-Oeste", position:0, value: (res.mulheres.centro_oeste / res.total.centro_oeste * 100).toFixed(2)},
-            {category: "Centro-Oeste", position:1, value: (res.homens.centro_oeste / res.total.centro_oeste * 100).toFixed(2)}
-          ]
-          data.data.push({
-            "name":"por_sexo",
-            values
-          })
-          render(data);
-        })
-        .catch(e => console.log(e))
-     })
-      
 
-    function render(spec) {
-      view = new vega.View(vega.parse(spec))
-        .renderer('canvas')  // set renderer (canvas or svg)
-        .initialize('#view') // initialize view within parent DOM container
-        // .hover()             // enable hover encode set processing
-        .run();
+<script type="text/javascript">
+var iris_spec = {
+  "width": 200,
+  "height": 200,
+  "data": [
+    {
+      "name": "iris",
     }
-  </script>
-    <h3>Acesso por Sexo e Região (%)</h3>
-    <div id="view"></div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "nice": true,
+      "range": "width",
+      "domain": {"data": "iris", "field": "data.sepalWidth"}
+    },
+    {
+      "name": "y",
+      "nice": true,
+      "range": "height",
+      "domain": {"data": "iris", "field": "data.petalLength"}
+    },
+    {
+      "name": "c",
+      "type": "ordinal",
+      "domain": {"data": "iris", "field": "data.species"},
+      "range": "category10"
+    }
+  ],
+  "axes": [
+    {"type": "x", "scale": "x", "offset": 5, "ticks": 5, "title": "Sepal Width"},
+    {"type": "y", "scale": "y", "offset": 5, "ticks": 5, "title": "Petal Length"}
+  ],
+  "legends": [
+    {
+      "fill": "c",
+      "title": "Species",
+      "offset": 0,
+      "properties": {
+        "symbols": {
+          "fillOpacity": {"value": 0.5},
+          "stroke": {"value": "transparent"}
+        }
+      }
+    }
+  ],
+  "marks": [
+    {
+      "type": "symbol",
+      "from": {"data": "iris"},
+      "properties": {
+        "enter": {
+          "x": {"scale": "x", "field": "data.sepalWidth"},
+          "y": {"scale": "y", "field": "data.petalLength"},
+          "fill": {"scale": "c", "field": "data.species"},
+          "fillOpacity": {"value": 0.5}
+        },
+        "update": {
+          "x": {"scale": "x", "field": "data.sepalWidth"},
+          "y": {"scale": "y", "field": "data.petalLength"},
+          "fill": {"scale": "c", "field": "data.species"},
+          "size": {"value": 100},
+          "stroke": {"value": "transparent"}
+        },
+        "hover": {
+          "size": {"value": 300},
+          "stroke": {"value": "white"}
+        }
+      }
+    }
+  ]
+}
+var categories_2 = {
+  "iris" : [
+    {"sepalWidth": 1, "petalLength": 1, "species": "setosa"},
+    {"sepalWidth": 2, "petalLength": 2, "species": "setosa"},
+    {"sepalWidth": 3, "petalLength": 3, "species": "versicolor"},
+    {"sepalWidth": 4, "petalLength": 4, "species": "versicolor"}
+  ] 
+}
+var categories_6 = {
+  "iris" : [
+    {"sepalWidth": 1, "petalLength": 9, "species": "setosa"},
+    {"sepalWidth": 2, "petalLength": 8, "species": "setosa1"},
+    {"sepalWidth": 3, "petalLength": 7, "species": "setosa1"},
+    {"sepalWidth": 4, "petalLength": 6, "species": "versicolor"},
+    {"sepalWidth": 5, "petalLength": 5, "species": "versicolor"},
+    {"sepalWidth": 6, "petalLength": 4, "species": "versicolor1"},
+    {"sepalWidth": 7, "petalLength": 3, "species": "virginica"},
+    {"sepalWidth": 8, "petalLength": 2, "species": "virginica1"},
+    {"sepalWidth": 9, "petalLength": 1, "species": "virginica1"}
+  ]
+};
+function go(spec, data1, data2) {
+  var vis;
+  vg.parse.spec(spec, function(chart) {
+    vis = chart({el:"#vis", renderer: "canvas"});
+    vis.data(data1);
+    vis.update();
+  });
+  // After 1 second, load second data set and update.
+  setTimeout(function() {
+      vis.data(data2)
+      vis.update();
+    },
+    1000
+  );
+}
+</script>
+<div>
+When either of the links below are clicked, Vega will parse the spec with the first data set; then it will wait one second and load the second data set and update, without re-parsing the spec.
+<br>
+One of the data sets has two categories, the other has six.
+<br><br>
+<a href="#" onclick="go(iris_spec, categories_2, categories_6);">Two then six categories</a>
+<br><br>
+<a href="#" onclick="go(iris_spec, categories_6, categories_2);">Six then two categories</a>
+<br><br>
+
+<div id="vis"></div>
+
+</div>
 </body>
 </html>

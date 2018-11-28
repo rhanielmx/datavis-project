@@ -10,29 +10,16 @@ function load_regiao(regiao){
   console.log(regiao)
   regiao = regiao.id;
 
-  $.getJSON('data/pie.json', function(res)  {
+  $.getJSON('data/acesso_por_rendimento_sexo_regiao.json', function(res)  {
    vega.loader()
    .load('json/bar.json')
    .then(function(data) { 
     var data = JSON.parse(data)
     var values = []
-    var regioes = ['norte','nordeste','sul','sudeste','centro_oeste']
-      var x_axis = [
-        {x:'Sem Renda', x_data: 'sem_renda'},
-      {x:'1/2 SM', x_data: "ate_meio"},
-      {x:'1/2 a 1 SM', x_data: "meio_a_um"},
-      {x:'1 a 2 SM', x_data: 'um_a_dois'},
-      {x:'2 a 3 SM', x_data: "dois_a_tres"},
-      {x:'3 a 5 SM', x_data: "tres_a_cinco"},
-      {x:"5 a 10 SM", x_data: "cinco_a_dez"},
-      {x:"> 10 SM", x_data: "mais_dez"}
+    values = [
+      {category: regiao.toUpperCase(), position:'Mulher', value: (res[regiao].mulheres / res.total[regiao] * 100).toFixed(2)},
+      {category: regiao.toUpperCase(), position:'Homem', value: (res[regiao].homens / res.total[regiao] * 100).toFixed(2)}
       ]
-      x_axis.forEach(x => {
-        values.push(
-          {category:regiao, value:res[regiao][x.x_data], position:x.x}
-        )
-      })
-      console.log(values)
     data.data.push({
       "name":"por_sexo",
       values
@@ -40,8 +27,6 @@ function load_regiao(regiao){
     render_por_sexo(data);
   })
    .catch(e => console.log(e))
- })
-  $.getJSON('data/acesso_por_rendimento_sexo_regiao.json', function(res)  {
    vega.loader()
     .load('json/stacked.json')
     .then(function(data) {
@@ -84,42 +69,32 @@ function load_regiao(regiao){
 
     
 async function load_por_sexo(){
-  $.getJSON('data/pie.json')
-  .then(res => {
-    console.log(res)
-    var a = vega.loader()
-    .load('json/bar.json')
-    .then(function(data) { 
-      var data = JSON.parse(data)
-      var values = []
-      var regioes = ['norte','nordeste','sul','sudeste','centro_oeste']
-      var x_axis = [
-        {x:'Sem Renda', x_data: 'sem_renda'},
-      {x:'1/2 SM', x_data: "ate_meio"},
-      {x:'1/2 a 1 SM', x_data: "meio_a_um"},
-      {x:'1 a 2 SM', x_data: 'um_a_dois'},
-      {x:'2 a 3 SM', x_data: "dois_a_tres"},
-      {x:'3 a 5 SM', x_data: "tres_a_cinco"},
-      {x:"5 a 10 SM", x_data: "cinco_a_dez"},
-      {x:"> 10 SM", x_data: "mais_dez"}
-      ]
-      regioes.forEach(r => {
-      x_axis.forEach(x => {
-        values.push(
-          {category:r, value:res[r][x.x_data], position:x.x}
-        )
-      })
+  res = await load_data()
+  var a = vega.loader()
+  .load('json/bar.json')
+  .then(function(data) { 
+    var data = JSON.parse(data)
+    var values = []
+    values = [{category: "Brasil", position:'Mulher', value: (res.total.mulheres / res.total.brasil * 100).toFixed(2)},
+      {category: "Brasil", position:'Homem', value: (res.total.homens / res.total.brasil * 100).toFixed(2)},
+      {category: "Norte", position:'Mulher', value: (res.norte.mulheres / res.total.norte * 100).toFixed(2)},
+      {category: "Norte", position:'Homem', value: (res.norte.homens / res.total.norte * 100).toFixed(2)},
+      {category: "Nordeste", position:'Mulher', value: (res.nordeste.mulheres / res.total.nordeste * 100).toFixed(2)},
+      {category: "Nordeste", position:'Homem', value: (res.nordeste.homens / res.total.nordeste * 100).toFixed(2)},
+      {category: "Sul", position:'Mulher', value: (res.sul.mulheres / res.total.sul * 100).toFixed(2)},
+      {category: "Sul", position:'Homem', value: (res.sul.homens / res.total.sul * 100).toFixed(2)},
+      {category: "Sudeste", position:'Mulher', value: (res.sudeste.mulheres / res.total.sudeste * 100).toFixed(2)},
+      {category: "Sudeste", position:'Homem', value: (res.sudeste.homens / res.total.sudeste * 100).toFixed(2)},
+      {category: "Centro-Oeste", position:'Mulher', value: (res.centro_oeste.mulheres / res.total.centro_oeste * 100).toFixed(2)},
+      {category: "Centro-Oeste", position:'Homem', value: (res.centro_oeste.homens / res.total.centro_oeste * 100).toFixed(2)} ]
+    data.data.push({
+      "name":"por_sexo",
+      values
     })
-      data.data.push({
-        "name":"por_sexo",
-        values
-      })
-      render_por_sexo(data);
-    })
-     .catch(e => console.log(e))
-     return a
+    render_por_sexo(data);
   })
-  .catch(e => console.log(e))
+   .catch(e => console.log(e))
+   return a
 }
 
 async function load_por_rendimento(){
@@ -149,6 +124,7 @@ async function load_por_rendimento(){
         )
       })
     })
+    console.log(values)
     data.data.push({
       "name": "rendimento",
       values,
