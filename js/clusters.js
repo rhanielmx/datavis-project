@@ -1,16 +1,15 @@
 var body = document.getElementsByTagName("body")[0]
 var width = body.clientWidth, height = 480;
 
-var elementPosition = $('#svgdiv').offset();
+var elementPosition = $('#svgdiv')
 
-$('#svgdiv').css('width','100%').css('height','200');
+$('#svgdiv').css('width','200').css('height','300');
 
 var svg = d3.select("#svgdiv")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
 
-  console.log(height);
   
 var setGroup = d3.scaleOrdinal()
   .domain([0, 4])
@@ -50,10 +49,10 @@ function updateForces(groupOption){
     forceY = d3.forceY((d) => groups[groupOption][d.group].y);
 
     force = d3.forceSimulation(data)
-              .velocityDecay(0.2)
+              .velocityDecay(0.1)
               .force('x', forceX)
               .force('y', forceY)
-              .force("collide", d3.forceCollide(5))
+              .force("collide", d3.forceCollide(6.5))
               .force("tick", ticked);
 }
 
@@ -90,9 +89,6 @@ setTimeout(function(){
 
 let group = 'total';
 
-acessScale = d3.scaleLinear()
-                .domain([0,qtdAcessos.total.Todos])
-                .range([0,100])
 
 qtdNodes = generateNodes(group);
 data = generateData(qtdNodes)
@@ -129,20 +125,20 @@ groups = {
     },
     "age":{
         "0-20":  {
-           "x" : xScale(0),
-           "y": height / 2
+           "x" : xScale(1),
+           "y": height / 2 - 150
           },
         "20-40":  {
            "x" : xScale(1),
-           "y": height / 2
+           "y": height / 2 + 50
           },
         "40-60":  {
-           "x" : xScale(2),
-           "y": height / 2
+           "x" : xScale(3),
+           "y": height / 2 - 150
           },
         "60+":  {
            "x" : xScale(3),
-           "y": height / 2
+           "y": height / 2 + 50
           }
     },  
     "sex":{
@@ -191,6 +187,10 @@ nodes.forEach(function(d){
 
 
 },2000);
+
+var acessScale = d3.scaleLinear()
+                .domain([0,qtdAcessos.total.Todos])
+                .range([0,100])
 
 function generateNodes(groupOption){
 
