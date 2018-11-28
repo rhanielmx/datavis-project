@@ -49,10 +49,10 @@ function updateForces(groupOption){
     forceY = d3.forceY((d) => groups[groupOption][d.group].y);
 
     force = d3.forceSimulation(data)
-              .velocityDecay(0.04)
+              .velocityDecay(0.05)
               .force('x', forceX)
               .force('y', forceY)
-              .force("collide", d3.forceCollide(5))
+              .force("collide", d3.forceCollide(5.5))
               .force("tick", ticked);
 }
 
