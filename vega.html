@@ -10,12 +10,15 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script> 
-  <script src="https://vega.github.io/vega/vega-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.6.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0"></script>
   <script type="text/javascript" src="js/por_sexo_e_regiao.js"></script>
 
 </head>
 <body>
   <script type="text/javascript">
+   
   </script>
     <div id="sexo-regiao-container">
       <div class="row">
@@ -26,10 +29,18 @@
           <div id="rendimento_regiao"></div>
         </div>
       </div>
-      <div class="row">
-        <button type="button" class="btn btn-light" onclick="load_por_sexo()">Todos</button>
-        <button type="button" class="btn btn-dark" onclick="load_nordeste()">Nordeste</button>
-      </div>
+      <br>
+      <div class="row col-9">
+        <div class="col-offset-6">
+          <button type="button" class="btn btn-light" onclick="load_all()">Todos</button>
+          <button type="button" id="norte" class="btn btn-dark" onclick="load_regiao(this)">Norte</button>
+          <button type="button" id="nordeste" class="btn btn-dark" onclick="load_regiao(this)">Nordeste</button>
+          <button type="button" id="sul" class="btn btn-dark" onclick="load_regiao(this)">Sul</button>
+          <button type="button" id="sudeste" class="btn btn-dark" onclick="load_regiao(this)">Sudeste</button>
+          <button type="button" id="centro_oeste" class="btn btn-dark" onclick="load_regiao(this)">Centro-Oeste</button>
+        </div>
+      </div>  
     </div>
+
 </body>
 </html>

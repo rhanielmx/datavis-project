@@ -1,16 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 500,
-  "height": 200,
+  "width": 400,
+  "height": 300,
   "padding": 5,
 
   "data": [],
-  "encoding":{
-    "color": {
-      "field": "c", 
-      "type": "nominal"
-    }
-  },
   "scales": [
     {
       "name": "x",
@@ -33,14 +27,24 @@
       "domain": {"data": "rendimento", "field": "c"}
     }
   ],
-
+  "signals": [
+    {
+      "name": "tooltip",
+      "value": {},
+      "on": [
+        {"events": "rect:mouseover", "update": "datum"},
+        {"events": "rect:mouseout",  "update": "{}"}
+      ]
+    }
+  ],
   "axes": [
     {"orient": "bottom", "scale": "x", "zindex": 1}
   ],
   "legends": [
     {
-      "fill": "c",
-      "title": "Species",
+      "fill": "color",
+      "sort": "descending",
+      "title": "Regioes",
       "offset": 0,
       "properties": {
         "symbols": {
@@ -55,28 +59,20 @@
       "type": "rect",
       "from": {"data": "rendimento"},
       "encode": {
-        "encoding": {
-        "color": {
-          "field": "color", 
-          "sort": false,
-          "type": "nominal",
-          "legend": { "title": "" }
-        } 
-      },
+        "update":{
+          "orient": {"value": "vertical"},
+          "tooltip": {
+            "signal": "datum.y + \"%\""
+          }
+        },
         "enter": {
           "x": {"scale": "x", "field": "x"},
           "width": {"scale": "x", "band": 1, "offset": -1},
           "y": {"scale": "y", "field": "y0"},
           "y2": {"scale": "y", "field": "y1"},
           "fill": {"scale": "color", "field": "c"}
-        },
-        "update": {
-          "fillOpacity": {"value": 1}
-        },
-        "hover": {
-          "fillOpacity": {"value": 0.5}
         }
       }
-    }
+    } 
   ]
 }
