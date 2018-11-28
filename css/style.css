@@ -15,7 +15,9 @@
 	margin: 0 0 5px;
 	color: #777;
 }
-
+#equipe {
+  color: #fff;
+}
 .legend {
 	text-align: left;
 	line-height: 18px;
@@ -44,7 +46,7 @@
   border-radius: 50px;
   position: relative;
   height: 26px;
-  width: 318px;
+  width: 212px;
 }
 .toggle_radio > * {
   float: left;

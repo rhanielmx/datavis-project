@@ -1,9 +1,9 @@
 var body = document.getElementsByTagName("body")[0]
 var width = body.clientWidth, height = 480;
 
-var elementPosition = $('#svgdiv').offset();
+var elementPosition = $('#svgdiv')
 
-$('#svgdiv').css('width','100%').css('height','200');
+$('#svgdiv').css('width','200').css('height','300');
 
 var svg = d3.select("#svgdiv")
   .append("svg")

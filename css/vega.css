@@ -1,0 +1,21 @@
+#sexo-regiao-container{
+	/*margin-left: 100px;*/
+}
+
+#btn-selton{
+}
+
+#btn-por-renda{
+	height: 60px;
+	width: 100px;
+}
+
+.btn-selected{
+	background-color: #000
+}
+
+#btn-por-sexo{
+	margin-bottom: 50px;
+	height: 60px;
+	width: 100px;
+}
