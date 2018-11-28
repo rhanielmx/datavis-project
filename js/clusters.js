@@ -5,7 +5,7 @@ var elementPosition = $('#svgdiv')
 
 $('#svgdiv').css('width','960').css('height','440');
 
-var svg = d3.select("#svgdiv")
+var clusters_svg = d3.select("#svgdiv")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
@@ -153,11 +153,10 @@ groups = {
     }
 };
 
-
 var forceX = d3.forceX((d) => groups[group][d.group].x);
 var forceY = d3.forceY((d) => groups[group][d.group].y);
 
-node = svg.append("g")
+node = clusters_svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
             .data(data)
@@ -174,7 +173,7 @@ force = d3.forceSimulation(data)
 
 nodes.forEach(function(d){
     
-    svg.append("text")
+    clusters_svg.append("text")
             .attr("x", groups[group][d.group].x - 30)
             .attr("y", groups[group][d.group].y - 80)
             .style("font-family","Arial, Helvetica, sans-serif")
@@ -242,7 +241,7 @@ function generateData(nodes){
 }
 
 d3.select("#totalBtn").on("click", function(){
-    svg.selectAll('text').remove();
+    clusters_svg.selectAll('text').remove();
 
     option='total'
     new_nodes = generateNodes(option)
@@ -256,7 +255,7 @@ d3.select("#totalBtn").on("click", function(){
 
     nodes.forEach(function(d){
     
-    svg.append("text")
+    clusters_svg.append("text")
             .attr("x", groups[option][d.group].x - 30)
             .attr("y", groups[option][d.group].y - 80)
             .style("font-family","Arial, Helvetica, sans-serif")
@@ -273,7 +272,7 @@ d3.select("#totalBtn").on("click", function(){
 })
 
 d3.select("#regionBtn").on("click", function(){
-    svg.selectAll('text').remove();
+    clusters_svg.selectAll('text').remove();
 
     option='region'
     new_nodes = generateNodes(option)
@@ -286,7 +285,7 @@ d3.select("#regionBtn").on("click", function(){
     updateForces(option);
 
     nodes.forEach(function(d){    
-      svg.append("text")
+      clusters_svg.append("text")
           .attr("x", groups[option][d.group].x - 30)
           .attr('y', groups[option][d.group].y - 50)
           .style("font-family","Arial, Helvetica, sans-serif")
@@ -303,7 +302,7 @@ d3.select("#regionBtn").on("click", function(){
 })
 
 d3.select("#ageBtn").on("click", function(){
-    svg.selectAll('text').remove();
+    clusters_svg.selectAll('text').remove();
 
     option='age'
     new_nodes = generateNodes(option)
@@ -316,7 +315,7 @@ d3.select("#ageBtn").on("click", function(){
     updateForces(option)
 
     nodes.forEach(function(d){    
-      svg.append("text")
+      clusters_svg.append("text")
           .attr("x", groups[option][d.group].x - 20)
           .attr('y', groups[option][d.group].y - 60)
           .style("font-family","Arial, Helvetica, sans-serif")
@@ -334,7 +333,7 @@ d3.select("#ageBtn").on("click", function(){
 
 d3.select("#sexBtn").on("click", function(){
 
-    svg.selectAll('text').remove();
+    clusters_svg.selectAll('text').remove();
 
     option = 'sex'
     new_nodes = generateNodes(option)
@@ -347,7 +346,7 @@ d3.select("#sexBtn").on("click", function(){
     updateForces(option)
 
     nodes.forEach(function(d){    
-      svg.append("text")
+      clusters_svg.append("text")
           .attr("x", groups[option][d.group].x - 35)
           .attr('y', groups[option][d.group].y - 75)
           .style("font-family","Arial, Helvetica, sans-serif")
