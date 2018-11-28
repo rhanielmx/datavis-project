@@ -1,0 +1,113 @@
+{
+	"total":{
+		"brasil": 177657,
+		"norte": 14537,
+		"nordeste": 48410,
+		"sudeste": 75599,
+		"sul": 25772,
+		"centro_oeste": 13340,
+		"0_20": {
+			"brasil": 33343,
+			"norte": 3425,
+			"nordeste": 10333,
+			"sudeste": 12810,
+			"sul": 4278,
+			"centro_oeste": 2497
+		},
+		"20_40": {
+			"brasil": 62906,
+			"norte": 5626,
+			"nordeste": 17448,
+			"sudeste": 26173,
+			"sul": 8650,
+			"centro_oeste": 5008
+		},
+		"40_60": {
+			"brasil": 52033,
+			"norte": 3716,
+			"nordeste": 13047,
+			"sudeste": 23153,
+			"sul": 8169,
+			"centro_oeste": 3950
+		},
+		"60_": {
+			"brasil": 29374,
+			"norte": 1769,
+			"nordeste": 7582,
+			"sudeste": 13462,
+			"sul": 4675,
+			"centro_oeste": 1885
+		},
+		"homens": 85489,
+		"mulheres": 92167,
+		"sem_rendimento":29.4,
+		"ate_meio":7,
+		"meio_a_um": 5.2,
+		"um_a_dois": 32.2,
+		"dois_a_tres": 12.1,
+		"tres_a_cinco":7,
+		"cinco_a_dez":4.1,
+		"mais_dez":1.9
+	},
+	"norte":{
+		"homens":7281,
+		"mulheres":7256,
+		"sem_rendimento":38.8,
+		"ate_meio":6.7,
+		"meio_a_um": 6,
+		"um_a_dois": 25.6,
+		"dois_a_tres": 9.4,
+		"tres_a_cinco": 4.5,
+		"cinco_a_dez": 4.5,
+		"mais_dez": 1.6
+	},
+	"nordeste":{
+		"homens":23182,
+		"mulheres":25228,
+		"sem_rendimento": 38.7,
+		"ate_meio": 8.7,
+		"meio_a_um": 6.2,
+		"um_a_dois": 27.3,
+		"dois_a_tres": 7.8,
+		"tres_a_cinco":5.7,
+		"cinco_a_dez":3.7,
+		"mais_dez": 1.6
+	},
+	"sul":{
+		"homens": 12502,
+		"mulheres": 13270,
+		"sem_rendimento": 28.5,
+		"ate_meio": 2.6,
+		"meio_a_um": 3.3,
+		"um_a_dois": 24.5,
+		"dois_a_tres": 16.8,
+		"tres_a_cinco":12,
+		"cinco_a_dez":7.8,
+		"mais_dez": 3.3
+	},
+	"sudeste":{
+		"homens": 36038,
+		"mulheres": 39561,
+		"sem_rendimento": 32.2,
+		"ate_meio": 2.8,
+		"meio_a_um": 2.9,
+		"um_a_dois": 25.2,
+		"dois_a_tres": 14.4,
+		"tres_a_cinco":10.3,
+		"cinco_a_dez":6.7,
+		"mais_dez":3.5
+	},
+	"centro_oeste":{
+		"homens": 6487,
+		"mulheres": 6852,
+		"sem_rendimento": 31.8,
+		"ate_meio": 3.5,
+		"meio_a_um": 3.5,
+		"um_a_dois": 25,
+		"dois_a_tres": 13.7,
+		"tres_a_cinco":9.6,
+		"cinco_a_dez":7.7,
+		"mais_dez":4.5
+	}
+
+}
