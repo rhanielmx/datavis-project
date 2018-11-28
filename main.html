@@ -25,6 +25,9 @@
 
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+
     <!-- Custom styles for this template -->
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
 
@@ -41,7 +44,7 @@
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <a class="navbar-brand" href="#">Brasil Conectado</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,17 +54,9 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Sobre</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
+         </div>
       </nav>
     </header>
 
@@ -73,36 +68,72 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis dui felis, non porta sem varius ac. Sed at ex pellentesque, rutrum elit non, sollicitudin felis. Pellentesque id tempor leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce molestie quam ac ultrices vestibulum. Quisque bibendum posuere lectus, eget commodo sapien rutrum eu. Maecenas placerat maximus magna ut commodo. Vivamus id mauris non velit sagittis tincidunt non ac turpis. Suspendisse accumsan mauris velit, at aliquet nulla pulvinar sit amet. Proin eget mollis velit. Aenean ante ante, malesuada sit amet fringilla vitae, luctus sit amet nulla. Fusce varius mi id augue consequat, ut pharetra libero venenatis. Fusce euismod id ex ac dignissim. Donec eget diam at justo dapibus ultrices at a urna. Praesent scelerisque, diam placerat pulvinar volutpat, dolor orci cursus quam, dictum consectetur diam orci quis turpis. Nullam viverra a arcu sit amet blandit.
       </p>
     
+    
+
+
     <div class="container">
       <h1> Número de Acessos à Internet no Brasil em 2015</h1>
       <p>
-        Dados retirados do site do <a href="http://www.sspds.ce.gov.br/">IBGE</a>.
+        Dados retirados do site do <a href="https://downloads.ibge.gov.br/downloads_estatisticas.htm">IBGE</a>.
       </p>  
-        <div id="map">
-        <strong>Acessos por Estado</strong>
+        <div class="wrapper">
+          <div class="toggle_radio">
+            <input type="radio" class="toggle_option" id="net_toggle" name="toggle_option" value="data/acesso_internet.csv">
+            <input type="radio" checked class="toggle_option" id="tv_toggle" name="toggle_option" value="data/acesso_tele.csv"> 
+            <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option">
+            <label for="net_toggle"><p>Internet</p></label>
+            <label for="tv_toggle"><p>Televisão</p></label>
+            <label for="third_toggle"><p>Third Button</p></label>
+            <div class="toggle_option_slider">
+            </div>
+          </div>
+        
         </div>
+        
     </div>
 
     </main>
+    <div class="row" id="map">
+      <strong>Acessos por Estado</strong>
+    </div>
 
-
+    
     <script type= text/javascript src="data/br.js"></script>
 
     <script type="text/javascript" src="js/map.js"></script>
 
-    <button id="btn">Randomize</button>
+    <br>
 
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <div id="selector" class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" id="totalBtn">Total</button>
+          <button type="button" class="btn btn-secondary" id="regionBtn">Região</button>
+          <button type="button" class="btn btn-secondary" id="ageBtn">Idade</button>
+          <button type="button" class="btn btn-secondary" id="sexBtn">Sexo</button>
+        </div>
+      </div>
+    </div>
+ 
 
     <div id="svgdiv"><div>
+    <script type="text/javascript" src="data/qtdAcessos.js"></script>
 
     <script type="text/javascript" src="js/clusters.js"></script>
 
 
-
-
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <div class="row">
+          <div class="col-4 text-muted">
+            <span>Equipe: </span><br>
+            <span>Rhaniel Magalhães</span><br>
+            <span>Selton Fiuza</span><br>
+            <span>Thiago Beppe</span><br>
+          </div>
+        </div>
+
       </div>
     </footer>
 

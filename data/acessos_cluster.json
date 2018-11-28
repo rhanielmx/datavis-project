@@ -1,0 +1,23 @@
+[{
+	"total":{
+		"Todos": 177657
+	},
+	"region":{
+		"Norte":  14537,
+		"Nordeste":  48410,
+		"Sudeste":  75599,
+		"Sul":  25772,
+		"Centro-Oeste":  13340
+	},
+	"age":{
+		"0-20":  33343,
+		"20-40":  62906,
+		"40-60":  52033,
+		"60+":  29374
+	},	
+	"sex":{
+		"Homens": 85489,
+		"Mulheres":92167
+	},
+	"Fonte": "IBGE, Diretoria de Pesquisas, Coordenação de Trabalho e Rendimento, Pesquisa Nacional por Amostra de Domicílios 2015"
+}]
