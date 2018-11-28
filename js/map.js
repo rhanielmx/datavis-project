@@ -1,4 +1,4 @@
-  let blues = d3.schemeBlues[9].slice(1,);
+  let blues = d3.schemeGreens[9].slice(1,);
   
   let map = L.map('map').setView([-15.79621085,-47.88285245], 4);
   L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
@@ -25,7 +25,7 @@
   
   // get color depending on number of cases
   let quantize = d3.scaleQuantize()
-    .domain([0, 10000])
+    .domain([0, 100])
     .range(blues);
 
   function style(feature) {
@@ -108,6 +108,7 @@
         let domain_end = d3.max(data,function(d){
           return homicidiosByName.get(d.Estado)
         })
+
 
         domain_end = roundScale(domain_end)
 

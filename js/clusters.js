@@ -10,7 +10,6 @@ var svg = d3.select("#svgdiv")
   .attr("width", width)
   .attr("height", height);
 
-  console.log(height);
   
 var setGroup = d3.scaleOrdinal()
   .domain([0, 4])
@@ -50,10 +49,10 @@ function updateForces(groupOption){
     forceY = d3.forceY((d) => groups[groupOption][d.group].y);
 
     force = d3.forceSimulation(data)
-              .velocityDecay(0.2)
+              .velocityDecay(0.1)
               .force('x', forceX)
               .force('y', forceY)
-              .force("collide", d3.forceCollide(5))
+              .force("collide", d3.forceCollide(6.5))
               .force("tick", ticked);
 }
 
@@ -129,20 +128,20 @@ groups = {
     },
     "age":{
         "0-20":  {
-           "x" : xScale(0),
-           "y": height / 2
+           "x" : xScale(1),
+           "y": height / 2 - 150
           },
         "20-40":  {
            "x" : xScale(1),
-           "y": height / 2
+           "y": height / 2 + 50
           },
         "40-60":  {
-           "x" : xScale(2),
-           "y": height / 2
+           "x" : xScale(3),
+           "y": height / 2 - 150
           },
         "60+":  {
            "x" : xScale(3),
-           "y": height / 2
+           "y": height / 2 + 50
           }
     },  
     "sex":{

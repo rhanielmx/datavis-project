@@ -1,28 +1,28 @@
-Estado,Acessos
-Acre,285
-Alagoas,1175
-Amazonas,1597
-Amapá,335
-Bahia,6320
-Ceará,3331
-Distrito Federal,2007
-Espírito Santo,2004
-Goias,3542
-Maranhão,1941
-Minas Gerais,10332
-Mato Grosso do Sul,1456
-Mato Grosso,1526
-Pará,2963
-Paraíba,1738
-Pernambuco,3711
-Piauí,1061
-Paraná,5897
-Rio de Janeiro,9707
-Rio Grande do Norte,1570
-Rondônia,711
-Roraima,268
-Rio Grande do Sul,6094
-Santa Catarina,3768
-Sergipe,983
-São Paulo,27203
-Tocantins,557
+Estado,Acessos,Extensao
+Acre,285,152581
+Alagoas,1175,27768
+Amazonas,1597,1571000
+Amapá,335,148826
+Bahia,6320,567295
+Ceará,3331,8842791
+Distrito Federal,2007,5802
+Espírito Santo,2004,46095
+Goias,3542,340086
+Maranhão,1941,331983
+Minas Gerais,10332,586528
+Mato Grosso do Sul,1456,357125
+Mato Grosso,1526,903357
+Pará,2963,1248000
+Paraíba,1738,56585
+Pernambuco,3711,98312
+Piauí,1061,251529
+Paraná,5897,199315
+Rio de Janeiro,9707,43696
+Rio Grande do Norte,1570,52797
+Rondônia,711,237576
+Roraima,268,224299
+Rio Grande do Sul,6094,281748
+Santa Catarina,3768,95346
+Sergipe,983,21910
+São Paulo,27203,248209
+Tocantins,557,277621
